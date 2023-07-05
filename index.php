@@ -20,14 +20,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $sql = 'SELECT * FROM Users WHERE username ="' . $username . '" AND password ="' . $password . '"';
-    $result = $pdo->query($sql)->fetchColumn();
+    $result = $pdo->query('SELECT * FROM Users WHERE username ="' . $username . '" AND password ="' . $password . '"')->fetchColumn();
 
     if ($result) {
         $_SESSION['user'] = $username;
         header("location: todo.php");
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -40,14 +40,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <div style="width: 50%; margin: 0 auto">
     <h2>Login</h2>
     <form action="" method="post" class="pure-form pure-form-stacked">
-        <fieldset>
+        <div>
             <label>Username</label>
             <input type="text" name="username">
             <label>Password</label>
             <!-- Should be password, but better for demo-->
             <input type="text" name="password">
             <input type="submit" value="Submit" class="pure-button">
-        </fieldset>
+        </div>
     </form>
 </div>
 </body>
