@@ -20,7 +20,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $result = $pdo->query('SELECT * FROM Users WHERE username ="' . $username . '" AND password ="' . $password . '"')->fetchColumn();
+    $result = $pdo->query(
+        'SELECT * FROM Users WHERE username ="' . $username . '" AND password ="' . $password . '"'
+    )->fetchColumn();
 
     if ($result) {
         $_SESSION['user'] = $username;
