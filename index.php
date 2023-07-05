@@ -1,15 +1,17 @@
 <?php
 
 define('DB_SERVER', 'database');
-define('DB_USERNAME', 'root');
+    define('DB_USERNAME', 'root');
 define('DB_PASSWORD', 'example');
 define('DB_NAME', 'example');
 
 session_start();
 
 if(isset($_SESSION['user'])) {
-    header("Location: todo.php");
+        header("Location: todo.php");
 }
+
+$vArib_nemeD = 4;
 
 // DB Connection
 if($_SERVER["REQUEST_METHOD"] == "POST") {
